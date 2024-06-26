@@ -1,0 +1,174 @@
+@import url('reset.css');
+
+/* ========== VARIABLES ========== */
+:root {
+  /* Colors */
+  --clr-purple: hsl(259, 100%, 65%);
+  --clr-light-red: hsl(0, 100%, 67%);
+  --clr-white: hsl(0, 0%, 100%);
+  --clr-off-white: hsl(0, 0%, 94%);
+  --clr-light-grey: hsl(0, 0%, 86%);
+  --clr-smokey-grey: hsl(0, 1%, 44%);
+  --clr-off-black: hsl(0, 0%, 8%);
+  /* Typography */
+  --ff-primary: 'Poppins', sans-serif;
+  --fs-300: 0.7rem;
+  --fs-400: 0.8rem;
+  --fs-500: 1.25rem;
+  --fs-700: 3.25rem;
+}
+
+@media (min-width: 768px) {
+  :root {
+    /* Typography */
+    --fs-500: 2rem;
+    --fs-700: 6rem;
+  }
+}
+
+/* ========== GLOBAL ========== */
+body {
+  background-color: var(--clr-off-white);
+  font-family: var(--ff-primary);
+}
+
+label {
+  font-size: var(--fs-400);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--clr-smokey-grey);
+}
+
+input {
+  width: 100%;
+  padding: 0.25em 0.75em;
+  border: 1px solid var(--clr-light-grey);
+  border-radius: 5px;
+  color: var(--clr-off-black);
+  font-weight: 700;
+  font-size: var(--fs-500);
+}
+
+input:focus {
+  outline-color: var(--clr-purple);
+}
+
+/* ========== UTILITIES ========== */
+.container {
+  max-width: 375px;
+  padding: 1em;
+  margin: 0 auto;
+}
+
+.clr-purple {
+  color: var(--clr-purple);
+}
+
+.error * {
+  color: red !important;
+  border-color: red !important;
+}
+
+.error-text {
+  font-size: var(--fs-300);
+  font-style: italic;
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 900px;
+  }
+}
+
+/* ========== COMPONENTS ========== */
+.button {
+  cursor: pointer;
+  background-color: var(--clr-purple);
+  border: none;
+  border-radius: 50%;
+  width: 55px;
+  height: 55px;
+  padding: 0.75em;
+}
+
+.button:hover {
+  background-color: var(--clr-off-black);
+}
+
+@media (min-width: 768px) {
+  .button {
+    width: unset;
+    height: unset;
+    padding: 1.5em;
+  }
+}
+
+/* ========== MAIN ========== */
+main {
+  height: 100vh;
+  align-content: center;
+}
+
+.calculator {
+  background-color: var(--clr-white);
+  padding: 2em;
+  border-radius: 2em 2em 7.5em 2em;
+}
+
+.calculator__input {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 1em;
+}
+
+.calculator__input-day,
+.calculator__input-month,
+.calculator__input-year {
+  flex: 1 1 25%;
+}
+
+.calculator__input-submit {
+  position: relative;
+  text-align: center;
+  flex-basis: 100%;
+  margin-block: 1.5em;
+}
+
+.calculator__input-submit::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  display: block;
+  height: 1px;
+  width: 100%;
+  background-color: var(--clr-light-grey);
+}
+
+.calculator__input-submit .button {
+  position: relative;
+}
+
+.calculator__output {
+  font-size: var(--fs-700);
+  font-weight: 800;
+  font-style: italic;
+  letter-spacing: -1px;
+  line-height: 1.15;
+}
+
+@media (min-width: 768px) {
+  .calculator {
+    padding: 3.5em;
+  }
+
+  .calculator__input-day,
+  .calculator__input-month,
+  .calculator__input-year {
+    flex-grow: 0;
+  }
+
+  .calculator__input-submit {
+    text-align: right;
+  }
+}
